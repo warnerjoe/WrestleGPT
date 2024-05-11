@@ -2,19 +2,13 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
     const askButton = document.getElementById('askButton');
-    
-    const wrestlerOne = document.getElementById('wrestlerOne').value;
-    const wrestlerTwo = document.getElementById('wrestlerTwo').value;
-
-    // const questionInput = document.getElementById('questionInput');
-    
+    const questionInput = document.getElementById('questionInput');
     const answerDiv = document.getElementById('answerDiv');
     const copyButton = document.getElementById('copyButton'); 
 
     askButton.addEventListener('click', function() {
-        const prompt = `Please create a play by play recap of a professional wrestling match between ${wrestlerOne} and ${wrestlerTwo}. Please write it as if it were a multi-paragraph recap in a review of the show it was on.`;
-        console.log(prompt);
-        /*fetch('/api/query', {
+        const prompt = questionInput.value;
+        fetch('/api/query', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             answerDiv.textContent = 'Failed to load response. ' + error.message;
-        });*/
+        });
     });
 
     // Event listener for the copy button
