@@ -1,3 +1,11 @@
+html {
+    font-size: 62.5%;
+}
+
+body > div {
+    padding: 4rem;
+}
+
 #answerDiv {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -5,5 +13,12 @@
     padding: 10px;
     min-height: 150px; 
     overflow-y: auto; 
-    resize: vertical; 
+}
+
+#left-side form {
+    max-width: 35%;
+}
+
+#right-side {
+    max-width: 35%;
 }
