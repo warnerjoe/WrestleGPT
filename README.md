@@ -1,4 +1,4 @@
-# My Awesome Project
+# WrestleGPT
 This is a web based app where the user inputs two names and ChatGPT writes a recap of a professional wrestling match between the two people.
 
 **Link to project:** COMING SOON
