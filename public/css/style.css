@@ -13,12 +13,5 @@ body > div {
     padding: 10px;
     min-height: 150px; 
     overflow-y: auto; 
-}
-
-#left-side form {
-    max-width: 35%;
-}
-
-#right-side {
-    max-width: 35%;
+    text-align: center;
 }
