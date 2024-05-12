@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyButton = document.getElementById('copyButton'); 
 
     askButton.addEventListener('click', function() {
-        const prompt = `Please create a play by play recap of a professional wrestling match between ${wrestlerOne.value} and ${wrestlerTwo.value}. Please write it as if it were a multi-paragraph recap in a review of the show it was on.`;
+        const prompt = `Please create a play by play recap of a professional wrestling match between ${wrestlerOne.value} and ${wrestlerTwo.value}. Please write it as if it were a multi-paragraph recap in a review of the show it was on, and write the paragraphs using proper HTML markup.`;
         fetch('/api/query', {
             method: 'POST',
             headers: {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log('Received data:', data);
-            answerDiv.textContent = data.message;
+            answerDiv.innerHTML = data.message;
         })
         .catch(error => {
             console.error('Error:', error);
