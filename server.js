@@ -1,13 +1,20 @@
 
 const express         = require('express');
 const app             = express();
-const mainRoutes      = require('./routes/main');
 const axios           = require('axios');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('express-flash');
+const logger = require('morgan');
 const { MongoClient } = require('mongodb');
 const connectDB       = require('./config/database')
+const mainRoutes      = require('./routes/main');
+
 const PORT            = process.env.PORT || 3000;
 
-require('dotenv').config();
+require('dotenv').config( {path: './config/.env'});
 
 // EXPRESS - Middleware to serve static files and parse JSON bodies
 app.use(express.static('public'));
@@ -23,11 +30,11 @@ async function run() {
   try {
     await client.connect();
     // These variables determine which database and collection you are getting data from.
-    const db = client.db("wrestlers");
-    const coll = db.collection("wrestlers");
+    const db = client.db("users");
+    const coll = db.collection("users");
 
     // This calls the find function on the collection specified above
-    const cursor = coll.find({ringName: "Chris Jericho"});
+    const cursor = coll.find();
 
     // For each element, it performs a console.log
     await cursor.forEach(console.log);
@@ -42,6 +49,21 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(logger('dev'))
+// Sessions
+app.use(
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+    })
+  )
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use(flash())
 
 app.use('/', mainRoutes)
 
