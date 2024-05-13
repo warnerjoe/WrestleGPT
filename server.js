@@ -4,6 +4,7 @@ const app             = express();
 const mainRoutes      = require('./routes/main');
 const axios           = require('axios');
 const { MongoClient } = require('mongodb');
+const connectDB       = require('./config/database')
 const PORT            = process.env.PORT || 3000;
 
 require('dotenv').config();
@@ -11,6 +12,8 @@ require('dotenv').config();
 // EXPRESS - Middleware to serve static files and parse JSON bodies
 app.use(express.static('public'));
 app.use(express.json());
+
+connectDB();
 
 // MONGODB - Test Connection
 const client = new MongoClient(process.env.MONGO_URI);
