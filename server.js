@@ -62,6 +62,7 @@ app.use(
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+require('./config/passport.js')(passport);
 
 app.use(flash())
 
