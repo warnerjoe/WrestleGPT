@@ -7,5 +7,8 @@ module.exports = {
     },
     getProfile: (req, res) => {
         res.render('profile.ejs')
+    },
+    getRoster: (req, res) => {
+        res.render('roster.ejs')
     }
 }
