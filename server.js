@@ -53,7 +53,7 @@ app.use(logger('dev'))
 // Sessions
 app.use(
     session({
-        secret: 'keyboard cat',
+        secret: process.env.MONGO_SECRET,
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
