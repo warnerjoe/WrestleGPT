@@ -2,36 +2,34 @@
 <%- include('partials/nav') %>
 
 <div class="container d-flex flex-row justify-content-center">
-      <div class="row">
+    <div class="row">
         <div class="col-md-6">
-          <section id="left-side" class="p-2 d-flex flex-column justify-content-between">
-            <!-- Left side content -->
-            <form class="flex-grow-1">
-                <div class="form-group">
-                  <label for="wrestlerOne">First Wrestler</label>
-                  <input type="text" class="form-control" id="wrestlerOne" placeholder="Kenny Omega">
-                </div>
-                <div class="form-group">
-                  <label for="wrestlerTwo">Second Wrestler</label>
-                  <input type="text" class="form-control" id="wrestlerTwo" placeholder="Randy Orton">
-                </div>
-                <div class="form-group">
-                  <label for="matchGimmick">Match Gimmick</label>
-                  <input type="text" class="form-control" id="matchGimmick" placeholder="Regular Singles Match, No Holds Barred, etc.">
-                </div>
-                <button type="button" class="btn btn-default" id="askButton">Submit</button>
-              </form>
-        </section>
-      </div>
+            <section id="left-side" class="p-2 d-flex flex-column justify-content-between">
+                <!-- Left side content -->
+                <form id="wrestlerForm" class="flex-grow-1">
+                    <div class="form-group">
+                        <label for="wrestlerOne">First Wrestler</label>
+                        <input type="text" class="form-control" id="wrestlerOne" placeholder="Kenny Omega">
+                        <!-- Dropdown to display autocomplete suggestions -->
+                        <div id="autocompleteDropdown" class="dropdown-menu" aria-labelledby="wrestlerOne"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="wrestlerTwo">Second Wrestler</label>
+                        <input type="text" class="form-control" id="wrestlerTwo" placeholder="Randy Orton">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="askButton">Submit</button>
+                </form>
+            </section>
+        </div>
 
-      <div class="col-md-6">
-        <section id="right-side" class="p-2 d-flex flex-column justify-content-between">
-          <!-- Right side content -->
-          <div id="answerDiv" class="border p-3 bg-light"></div>
-          <button id="copyButton" class="btn btn-secondary mt-3">Copy Response</button>
-        </section>
-      </div>
-      </div>
+        <div class="col-md-6">
+            <section id="right-side" class="p-2 d-flex flex-column justify-content-between">
+                <!-- Right side content -->
+                <div id="answerDiv" class="border p-3 bg-light"></div>
+                <button id="copyButton" class="btn btn-secondary mt-3">Copy Response</button>
+            </section>
+        </div>
     </div>
+</div>
 
 <%- include('partials/footer') %>
