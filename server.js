@@ -11,6 +11,7 @@ const logger          = require('morgan');
 const { MongoClient } = require('mongodb');
 const connectDB       = require('./config/database')
 const mainRoutes      = require('./routes/main');
+const Wrestler        = require('./models/Wrestler');
 
 const PORT            = process.env.PORT || 3000;
 
@@ -104,6 +105,27 @@ app.post('/api/query', async (req, res) => {
     }
 });
 
+app.get('/searchone', async (req, res) => {
+    const ringName = req.query.ringName;
+    try {
+      const results = await Wrestler.find({ ringName: { $regex: ringName, $options: 'i' } });
+      res.json(results);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to fetch data from searchone' });
+    }
+  });
+  
+  app.get('/searchtwo', async (req, res) => {
+    const ringName = req.query.ringName;
+    try {
+      const results = await Wrestler.find({ ringName: { $regex: ringName, $options: 'i' } });
+      res.json(results);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to fetch data from searchtwo' });
+    }
+  });
 
 // Start the server at PORT
 app.listen(PORT, () => {

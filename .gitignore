@@ -4,7 +4,7 @@ node_modules/
 # Environment configuration
 .env
 
-/public/meltzergpt.html
+public/meltzergpt.html
 
 # Build output directories
 dist/
