@@ -89,15 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    wrestlerOne.addEventListener('input', async function() {
-        const inputValue = this.value;
+    // Function to handle autocomplete logic
+async function handleAutocomplete(inputElement, dropdownElement) {
+    const inputValue = inputElement.value;
+    
+    try {
+        const response = await fetch(`/searchone?ringName=${encodeURIComponent(inputValue)}`);
+        const data = await response.json();
         
-        try {
-            const response = await fetch(`/searchone?ringName=${encodeURIComponent(inputValue)}`);
-            const data = await response.json();
-            
-            autocompleteDropdown.innerHTML = ''; // Clear previous autocomplete suggestions
-            
+        dropdownElement.innerHTML = ''; // Clear previous autocomplete suggestions
+        
+        if (data.length > 0) {
+            dropdownElement.style.display = 'block'; // Show dropdown only when there are suggestions
             data.forEach(wrestler => {
                 const link = document.createElement('a');
                 link.href = '#';
@@ -105,18 +108,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.textContent = wrestler.ringName;
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
-                    wrestlerOne.value = wrestler.ringName;
-                    autocompleteDropdown.style.display = 'none';
+                    inputElement.value = wrestler.ringName;
+                    dropdownElement.style.display = 'none';
                 });
-                autocompleteDropdown.appendChild(link);
+                dropdownElement.appendChild(link);
             });
-            
-            autocompleteDropdown.style.display = 'block';
-        } catch (error) {
-            console.error(error);
-            // Handle error
+        } else {
+            dropdownElement.style.display = 'none'; // Hide dropdown when there are no suggestions
         }
-    });
+    } catch (error) {
+        console.error(error);
+        // Handle error
+    }
+}
+
+// Event listener for wrestlerOne input
+wrestlerOne.addEventListener('input', async function() {
+    await handleAutocomplete(this, autocompleteDropdown);
+});
+
+// Event listener for wrestlerTwo input
+wrestlerTwo.addEventListener('input', async function() {
+    await handleAutocomplete(this, autocompleteDropdownTwo);
+});
 
     autocompleteDropdown.addEventListener('click', function(event) {
         if (event.target.tagName === 'A') {
