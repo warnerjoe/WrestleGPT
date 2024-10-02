@@ -4,7 +4,7 @@ This is a web based app where the user inputs two names and ChatGPT writes a rec
 **Link to project:** COMING SOON
 
 
-[WrestleGPT](http://localhost:3000/images/wrestlegpt.png)
+![WrestleGPT](http://localhost:3000/images/wrestlegpt.png)
 
 ## How It's Made:
 
