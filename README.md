@@ -4,6 +4,8 @@ This is a web based app where the user inputs two names and ChatGPT writes a rec
 **Link to project:** COMING SOON
 
 
+[WrestleGPT](http://localhost:3000/images/wrestlegpt.png)
+
 ## How It's Made:
 
 **Tech used:** HTML, Bootstrap CSS, JavaScript, Node, Express, Axios, Mongoose, OpenAI API
@@ -21,8 +23,10 @@ This is the first app I created using the OpenAI API, and I learned many lessons
 ## Examples:
 Take a look at these couple examples that I have in my own portfolio:
 
-**Project 1:** COMING SOON
+**WrestleGPT:** [https://github.com/warnerjoe/WrestleGPT](https://github.com/warnerjoe/WrestleGPT)
 
-**Project 2:** COMING SOON
+**Employee Error Reporter:** [https://github.com/warnerjoe/employee-error-reporter](https://github.com/warnerjoe/employee-error-reporter)
 
-**Project 3:** COMING SOON
+**Node Portfolio:** [https://github.com/warnerjoe/nodeportfolio](https://github.com/warnerjoe/nodeportfolio)
+
+**RDDB:** [https://github.com/warnerjoe/rddb-2/](https://github.com/warnerjoe/rddb-2)
