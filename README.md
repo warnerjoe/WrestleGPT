@@ -8,9 +8,11 @@ This is a web based app where the user inputs two names and ChatGPT writes a rec
 
 ## How It's Made:
 
-**Tech used:** HTML, Bootstrap CSS, JavaScript, Node, Express, Axios, Mongoose, OpenAI API
+**Tech used:** HTML, Bootstrap CSS, JavaScript, Node, Express, Axios, Mongoose, OpenAI API, Passport
 
 I started this project as a minimal NodeJS back end that requests a simple prompt from the ChatGPT API using Axios.  For the styling, I just used plain Bootstrap for simplicity. It is not fully implemented yet, but I intend to use MongoDB to have a database of people to choose from with a few properties, and hope to flesh it into more than a paragraph generator.
+
+I have also used Passport to create user Authentication to prevent anyone but me from using the OpenAI API.
 
 ## Optimizations
 
